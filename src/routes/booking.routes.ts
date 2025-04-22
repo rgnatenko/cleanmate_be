@@ -7,6 +7,7 @@ import { bookingSchema } from "../validation/bookingSchema";
 const BookingRouter = Router();
 
 BookingRouter.get("", bookingsController.getBookings);
+BookingRouter.get("/:customerId", bookingsController.getClientBookings);
 BookingRouter.post(
   "",
   authMiddleware,

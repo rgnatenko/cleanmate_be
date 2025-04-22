@@ -24,6 +24,12 @@ class BookingService {
 
     return bookings_list;
   }
+
+  async getClientBookings(customer_id: string) {
+    const bookings_list = await Booking.find({ customer_id });
+
+    return bookings_list;
+  }
 }
 
 export default new BookingService();

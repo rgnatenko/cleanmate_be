@@ -23,6 +23,17 @@ class BookingController {
       next(e);
     }
   }
+
+  async getClientBookings(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { customerId } = req.params;
+      const bookings_list = await BookingService.getClientBookings(customerId);
+
+      res.json(bookings_list);
+    } catch (e) {
+      next(e);
+    }
+  }
 }
 
 export default new BookingController();
